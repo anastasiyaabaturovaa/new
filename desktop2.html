@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ГАЗОБЕТОН-СТРОЙ — Каталог и Корзина</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Гарантируем, что элементы каталога выстраивают фото строго сбоку */
+        .product-item {
+            display: flex !important;
+            flex-direction: row !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+            gap: 15px;
+            padding: 15px;
+            background: #fdfdfd;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .product-info {
+            flex: 1;
+        }
+        .product-visual {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            width: 140px;
+        }
+        .product-img {
+            max-width: 120px;
+            height: auto;
+            object-fit: contain;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo" style="cursor:pointer;" onclick="location.href='index.html'">ГАЗОБЕТОН-СТРОЙ</div>
+            <nav class="nav-menu">
+                <a href="#catalog">каталог</a>
+                <a href="index.html#calc">калькулятор</a>
+                <a href="index.html#contacts">контакты</a>
+            </nav>
+            <div class="header-contacts">
+                <div class="phone">+7 999 432 11 00</div>
+                <div class="address">г. Пермь, ул. Лесная, д. 100</div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-layout">
+        
+        <div class="left-column">
+            <section id="catalog" class="catalog-section">
+                <h2 class="block-title-pill">КАТАЛОГ ТОВАРОВ</h2>
+                
+                <div class="products-list">
+                    <article class="product-item">
+                        <div class="product-info">
+                            <h3>Газобетонный блок D400</h3>
+                            <div class="product-price">
+                                <span class="price-cub">4 500 ₽/м³</span> 
+
+                                <span class="price-pcs">150 ₽/шт.</span>
+                            </div>
+                            <button type="button" class="btn-buy" style="margin-top: 10px;">В корзину</button>
+                        </div>
+                        <div class="product-visual">
+                            <img src="image2.jpg" alt="Блок D400" class="product-img">
+                            <p class="product-size" style="font-size: 11px; margin: 4px 0 0 0; color: #666;">600×100×300 мм</p>
+                            <p class="product-stock" style="font-size: 11px; margin: 2px 0 0 0; color: #999;">остаток: 450 куб. м.</p>
+                        </div>
+                    </article>
+
+                    <article class="product-item">
+                        <div class="product-info">
+                            <h3>Газобетонный блок D500</h3>
+                            <div class="product-price">
+                                <span class="price-cub">5 550 ₽/м³</span> 
+
+                                <span class="price-pcs">185 ₽/шт.</span>
+                            </div>
+                            <button type="button" class="btn-buy" style="margin-top: 10px;">В корзину</button>
+                        </div>
+                        <div class="product-visual">
+                            <img src="image3.JPG" alt="Блок D500" class="product-img">
+                            <p class="product-size" style="font-size: 11px; margin: 4px 0 0 0; color: #666;">600×200×300 мм</p>
+                            <p class="product-stock" style="font-size: 11px; margin: 2px 0 0 0; color: #999;">остаток: 550 куб. м.</p>
+                        </div>
+                    </article>
+
+
+<article class="product-item">
+                        <div class=
+
+-info">
+                            <h3>Газобетонный блок D600</h3>
+                            <div class="product-price">
+                                <span class="price-cub">6 600 ₽/м³</span> 
+
+                                <span class="price-pcs">220 ₽/шт.</span>
+                            </div>
+                            <button type="button" class="btn-buy" style="margin-top: 10px;">В корзину</button>
+                        </div>
+                        <div class="product-visual">
+                            <img src="image4.JPG" alt="Блок D600" class="product-img">
+                            <p class="product-size" style="font-size: 11px; margin: 4px 0 0 0; color: #666;">598×300×198 мм</p>
+                            <p class="product-stock" style="font-size: 11px; margin: 2px 0 0 0; color: #999;">остаток: 250 куб. м.</p>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="catalog-footer">
+                    <button type="button" class="btn-show-all">ПОКАЗАТЬ ВСЕ</button>
+                </div>
+            </section>
+        </div>
+
+        <div class="right-column">
+            <section class="cart-section">
+                <h2 class="block-title-pill text-center-pill">КОРЗИНА</h2>
+                
+                <div class="cart-product-card" style="display: flex; flex-direction: row; justify-content: space-between; align-items: center; padding: 15px;">
+                    <div class="cart-product-details" style="flex: 1;">
+                        <h3>Газобетонный блок D400</h3>
+                        <p class="cart-item-price" style="margin: 2px 0;">4 500 ₽/м³</p>
+                        <p class="cart-item-subprice" style="color: #777; margin-bottom: 8px;">150 ₽/шт.</p>
+                        <div class="cart-controls-row" style="display: flex; gap: 10px; align-items: center;">
+                            <div class="quantity-counter">
+                                <button class="counter-btn">-</button>
+                                <span class="counter-value">15</span>
+                                <button class="counter-btn">+</button>
+                            </div>
+                            <button class="btn-buy-action">Купить</button>
+                        </div>
+                    </div>
+                    <div class="cart-product-media" style="width: 100px; text-align: center;">
+                        <img src="image2.JPG" alt="Блок D400" class="product-img" style="max-width: 90px;">
+                    </div>
+                </div>
+
+                <div class="checkout-summary-box" style="margin-top: 20px;">
+                    <div class="summary-line">
+                        <span>Товары (15) — 119 кг</span>
+                        <span>2 250 ₽</span>
+                    </div>
+                    <div class="summary-line total-line">
+                        <strong>Итого</strong>
+                        <strong>2 250 ₽</strong>
+                    </div>
+                    <button class="btn-main-checkout">Перейти к оформлению</button>
+                    <p class="checkout-disclaimer">Дата и стоимость доставки определяются при оформлении заказа</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-left-text">
+            Круглосуточная клиентская поддержка: +7 999 432 11 00 
+
+            Ждем вас по адресу: Пермь, ул. Лесная д.100
+        </div>
+        <div class="footer-right-text">
+            газобетонные блоки напрямую от производителя!
+        </div>
+    </footer>
+</body>
+</html>"

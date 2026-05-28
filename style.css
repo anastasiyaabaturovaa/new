@@ -1,0 +1,448 @@
+/* --- СБРОС И ОБЩИЕ СТИЛИ --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+body {
+    background-color: #E5E5E5;
+    color: #333333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* --- ШАПКА САЙТА --- */
+.main-header {
+    background-color: #9B73DF;
+    color: white;
+    padding: 15px 40px;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 16px;
+    text-transform: lowercase;
+}
+
+.nav-menu a:hover {
+    text-decoration: underline;
+}
+
+.header-contacts {
+    text-align: right;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+/* --- СЕТКА ДВУХ КОЛОНОК --- */
+.main-layout {
+    max-width: 1200px;
+    width: 100%;
+    margin: 30px auto;
+    display: flex;
+    gap: 60px;
+    padding: 0 20px;
+    flex: 1;
+}
+
+.left-column, .right-column {
+    flex: 1;
+}
+
+/* --- ЗАГОЛОВКИ И ДЕКОРАТИВНЫЕ ПЛАШКИ (ИЗ ФИГМЫ) --- */
+h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #222;
+}
+
+/* Фиолетовая подложка под заголовком калькулятора */
+.section-title-accent {
+    background-color: #9B73DF;
+    color: white;
+    padding: 8px 15px;
+    font-size: 18px;
+    font-weight: normal;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+/* Овальные светлые плашки-заголовки для desktop2 */
+.block-title-pill {
+    background-color: #CBB6EC;
+    color: #333;
+    padding: 8px 25px;
+    font-size: 16px;
+    font-weight: normal;
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.text-center-pill {
+    display: block;
+    text-align: center;
+    max-width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- СТИЛИ ДЛЯ ВВОДА ДАННЫХ И ФОРМ --- */
+.calc-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 420px;
+}
+
+.input-group, .result-page-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.input-group label, .result-page-row label {
+    font-size: 15px;
+    color: #333;
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-wrapper input {
+    width: 180px;
+    height: 32px;
+    background-color: #D3C3EE;
+    border: none;
+    border-radius: 4px;
+    padding: 0 45px 0 10px;
+    text-align: right;
+    font-size: 14px;
+}
+
+/* Заблокированные поля вывода результатов на 2 странице */
+.disabled-field {
+    width: 180px;
+    height: 32px;
+    background-color: #D3C3EE;
+    border-radius: 4px;
+    justify-content: flex-end;
+    padding-right: 45px;
+}
+
+.unit, .disabled-field span {
+    position: absolute;
+    right: 12px;
+    font-size: 13px;
+    color: #444;
+    pointer-events: none;
+}
+
+/* --- КНОПКИ --- */
+.btn-calc, .btn-show-all {
+    background-color: #9B73DF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 12px 0;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 15px;
+    width: 180px;
+    text-align: center;
+}
+
+.btn-calc {
+    align-self: flex-start;
+}
+
+.btn-show-all {
+    width: 200px;
+}
+
+.btn-buy, .btn-buy-action {
+    background-color: #9B73DF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 20px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.btn-calc:hover, .btn-show-all:hover, .btn-buy:hover, .btn-buy-action:hover {
+    background-color: #825bc5;
+}
+
+/* --- СПИСКИ И ДЕТАЛИ --- */
+.benefits-section {
+    margin-bottom: 35px;
+}
+
+.benefits-list, .info-bullets {
+    list-style: none;
+}
+
+.benefits-list li {
+    margin-bottom: 8px;
+    font-size: 15px;
+    line-height: 1.4;
+}
+
+.info-bullets li {
+    margin-bottom: 6px;
+    font-size: 14px;
+    line-height: 1.5;
+    position: relative;
+    padding-left: 15px;
+}
+
+.info-bullets li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #333;
+}
+
+/* --- КАТАЛОГ СТРАНИЦЫ 1 --- *
+
+
+.products-list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.product-item {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #b5b5b5;
+    padding-bottom: 20px;
+}
+
+.product-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product-item h3, .cart-product-details h3 {
+    font-size: 16px;
+    font-weight: normal;
+    color: #000;
+}
+
+.product-price {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0;
+}
+
+.price-cub {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.price-pcs, .cart-item-subprice {
+    font-size: 14px;
+    color: #555;
+}
+
+.product-visual {
+    text-align: right;
+}
+
+.product-img {
+    width: 120px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 6px;
+    background-color: #ccc;
+}
+
+.product-size {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.product-stock {
+    font-size: 12px;
+    color: #555;
+}
+
+.catalog-footer {
+    text-align: right;
+    margin-top: 20px;
+}
+
+/* --- СТРАНИЦА DESKTOP 2: КОРЗИНА И ОФОРМЛЕНИЕ --- */
+.results-page-section {
+    margin-bottom: 35px;
+}
+
+.results-page-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 420px;
+}
+
+.info-text-box {
+    background-color: transparent;
+    padding: 5px 0;
+}
+
+.info-text-box h3 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Карточка товара в корзине */
+.cart-product-card {
+    display: flex;
+    justify-content: space-between;
+    background-color: transparent;
+    padding-bottom: 20px;
+    margin-bottom: 25px;
+}
+
+.cart-product-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+}
+
+.cart-item-price {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.cart-controls-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+/* Счетчик количества шт (- 15 +) */
+.quantity-counter {
+    display: inline-flex;
+    align-items: center;
+    background-color: #CBB6EC;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.counter-btn {
+    background: none;
+    border: none;
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    color: #333;
+}
+
+.counter-btn:hover {
+    background-color: #bfa8e0;
+}
+
+.counter-value {
+    padding: 0 10px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* Серая плашка чека заказа */
+.checkout-summary-box {
+    background-color: #D9D9D9;
+    border-radius: 28px;
+    padding: 30px 25px;
+    margin-top: 20px;
+}
+
+.summary-line {
+    display: flex;
+    justify-content: space-between;
+    font-size: 15px;
+    margin-bottom: 15px;
+    color: #222;
+}
+
+.total-line {
+    font-size: 18px;
+    border-top: 1px solid #b5b5b5;
+    padding-top: 15px;
+    margin-bottom: 20px;
+}
+
+.btn-main-checkout {
+    background-color: #9B73DF;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    width: 100%;
+    padding: 12px 0;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+.btn-main-checkout:hover {
+    background-color: #825bc5;
+}
+
+.checkout-disclaimer {
+    font-size: 12px;
+    color: #555;
+    line-height: 1.4;
+}
+
+/* --- ПОДВАЛ (ФУТЕР) --- */
+.main-footer {
+    width: 100%;
+    max-width: 1200px;
+    margin: 40px auto 20px auto;
+    padding: 20px;
+    border-top: 1px solid #b5b5b5;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    font-size: 13px;
+    color: #333;
+    line-height: 1.6;
+}
+
+.footer-right-text {
+    text-align: right;
+    color: #555;
+}

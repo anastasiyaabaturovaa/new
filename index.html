@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ГАЗОБЕТОН-СТРОЙ — Калькулятор и Итоги</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* ЕДИНЫЙ ШРИФТ ДЛЯ ВСЕГО САЙТА */
+        body, input, button, span, label, h2, h3, a {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+        }
+
+        /* ДВУХКОЛОНОЧНАЯ СЕТКА */
+        .main-layout {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .left-column {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .right-column {
+            width: 380px; /* Фиксированная ширина правой колонки, чтобы она не съезжала */
+            min-width: 300px;
+        }
+
+        /* ОДИН СТИЛЬ ДЛЯ ВСЕХ ЗАГОЛОВКОВ-ПЛАШЕК */
+        .unified-section-title {
+            background-color: #cbd5e1 !important; /* Серый цвет плашки из Figma */
+            color: #1e293b !important;
+            font-size: 16px !important;
+            font-weight: bold !important;
+            text-transform: uppercase !important;
+            padding: 10px 20px !important;
+            border-radius: 20px !important;
+            display: inline-block !important;
+            margin-top: 0 !important;
+            margin-bottom: 20px !important;
+            letter-spacing: 0.5px !important;
+        }
+
+        /* АКЦЕНТНАЯ ФИОЛЕТОВАЯ КНОПКА «РАССЧИТАТЬ» */
+        .btn-calc-accent {
+            background-color: #8b5cf6 !important; /* Яркий фиолетовый */
+            color: #ffffff !important;
+            font-weight: bold !important;
+            border: none !important;
+            padding: 12px 30px !important;
+            border-radius: 6px !important;
+            cursor: pointer !important;
+            text-transform: uppercase !important;
+            transition: background 0.2s;
+        }
+        .btn-calc-accent:hover {
+            background-color: #7c3aed !important;
+        }
+
+        /* СТИЛЬНАЯ АДАПТИВНОСТЬ */
+        max-width: 768px {
+            .main-layout {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .right-column {
+                width: 100%;
+            }
+        }
+
+        /* Чистые стили для блока итогов, защищенные от старого CSS */
+        .custom-results-wrapper {
+            display: flex; 
+            flex-direction: column; 
+            gap: 12px; 
+            margin-top: 15px;
+        }
+
+        .custom-result-row {
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+            margin-bottom: 4px;
+        }
+
+        .custom-result-row label {
+            font-weight: 500; 
+            color: #333;
+        }
+
+        .custom-pill-box {
+            background-color: #e2dbf0; 
+            width: 180px; 
+            height: 35px; 
+            border-radius: 6px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+            padding: 0 12px; 
+            box-sizing: border-box;
+        }
+
+        .custom-pill-box span.val {
+            font-weight: bold; 
+            color: #000; 
+            font-size: 15px;
+        }
+
+        .custom-pill-box span.unit-text {
+            color: #4a4a4a; 
+            font-size: 14px; 
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo" style="cursor:pointer;" onclick="location.href='index.html'">ГАЗОБЕТОН-СТРОЙ</div>
+            <nav class="nav-menu">
+                <a href="desktop2.html#catalog">каталог</a>
+                <a href="#calc">калькулятор</a>
+                <a href="#contacts">контакты</a>
+
+
+</nav>
+            <div class="header-contacts">
+                <div class="phone">+7 999 432 11 00</div>
+                <div class="address">г. Пермь, ул. Лесная, д. 100</div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-layout">
+        
+        <div class="left-column">
+            <section id="calc" class="calc-section">
+                <h2 class="unified-section-title">ОНЛАЙН КАЛЬКУЛЯТОР БЛОКОВ</h2>
+                <form class="calc-form" id="gazoCalc">
+                    <div class="input-group">
+                        <label>Длина блока</label>
+                        <div class="input-wrapper"><input type="number" id="bLength" value="600"><span class="unit">мм</span></div>
+                    </div>
+                    <div class="input-group">
+                        <label>Ширина блока</label>
+                        <div class="input-wrapper"><input type="number" id="bWidth" value="300"><span class="unit">мм</span></div>
+                    </div>
+                    <div class="input-group">
+                        <label>Высота блока</label>
+                        <div class="input-wrapper"><input type="number" id="bHeight" value="200"><span class="unit">мм</span></div>
+                    </div>
+                    <div class="input-group">
+                        <label>Плотность (D)</label>
+                        <div class="input-wrapper"><input type="number" id="bDensity" value="500"><span class="unit">кг/м³</span></div>
+                    </div>
+                    <div class="input-group">
+                        <label>Общая длина всех стен</label>
+                        <div class="input-wrapper"><input type="number" id="wLength" placeholder="например, 40"><span class="unit">м</span></div>
+                    </div>
+                    <div class="input-group">
+                        <label>Высота стен по углам</label>
+                        <div class="input-wrapper"><input type="number" id="wHeight" placeholder="например, 300"><span class="unit">см</span></div>
+                    </div>
+                    <div class="input-group">
+                        <label>Толщина стен</label>
+                        <div class="input-wrapper"><input type="number" id="wThickness" value="300"><span class="unit">мм</span></div>
+                    </div>
+                    <div class="input-group">
+                        <label>Цена за 1м³</label>
+                        <div class="input-wrapper"><input type="number" id="vPrice" value="5550"><span class="unit">₽</span></div>
+                    </div>
+                    
+                    <button type="button" class="btn-calc-accent" onclick="calculateOnCurrentPage()">РАССЧИТАТЬ</button>
+                </form>
+            </section>
+
+            <section class="results-page-section" style="margin-top: 40px;">
+                <h2 class="unified-section-title">ИТОГИ РАССЧЕТА</h2>
+                <div class="custom-results-wrapper">
+                    
+                    <div class="custom-result-row">
+                        <label>Необходимый объем</label>
+                        <div class="custom-pill-box">
+                            <span id="outVolume" class="val">0</span>
+                            <span class="unit-text">м³</span>
+                        </div>
+                    </div>
+                    
+                    <div class="custom-result-row">
+                        <label>Количество блоков</label>
+                        <div class="custom-pill-box">
+                            <span id="outCount" class="val">0</span>
+                            <span class="unit-text">шт</span>
+                        </div>
+                    </div>
+                    
+                    <div class="custom-result-row">
+                        <label>Количество поддонов</label>
+                        <div class="custom-pill-box">
+                            <span id="outPallets" class="val">0</span>
+                            <span class="unit-text">шт</span>
+                        </div>
+
+
+</div>
+                    
+                    <div class="custom-result-row">
+                        <label>Итоговая стоимость</label>
+                        <div class="custom-pill-box">
+                            <span id="outPrice" class="val">0</span>
+                            <span class="unit-text" style="font-weight: bold;">₽</span>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+
+        <div class="right-column">
+            <section class="benefits-section">
+                <h2 class="unified-section-title">ПОЧЕМУ ИМЕННО МЫ?</h2>
+                <ul class="benefits-list">
+                    <li>Прямые поставки от производителя</li>
+                    <li>Быстрая доставка</li>
+                    <li>Высокая прочность материалов</li>
+                    <li>Широкий ассортимент</li>
+                    <li>Точный расчет необходимых материалов и стоимости за 1 минуту</li>
+                </ul>
+            </section>
+
+            <section class="delivery-info-section" style="margin-top: 40px;">
+                <h2 class="unified-section-title">ОПЛАТА И ДОСТАВКА</h2>
+                <div class="info-text-box">
+                    <h3>Оплата</h3>
+                    <ul class="info-bullets">
+                        <li>Банковские карты (Visa, Mastercard, МИР).</li>
+                        <li>Яндекс Сплит — оплата частями.</li>
+                        <li>Кредит без переплат — программа кредитования в магазинах при выполнении условий.</li>
+                    </ul>
+                    <h3 style="margin-top: 20px;">Доставка и самовывоз</h3>
+                    <ul class="info-bullets">
+                        <li>Доставка по России</li>
+                        <li>Самовывоз из ближайшего магазина бесплатно</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer id="contacts" class="main-footer">
+        <div class="footer-left-text">
+            Круглосуточная клиентская поддержка: +7 999 432 11 00 
+
+            Ждем вас по адресу: Пермь, ул. Лесная д.100
+        </div>
+        <div class="footer-right-text">
+            газобетонные блоки напрямую от производителя!
+        </div>
+    </footer>
+
+    <script>
+        function calculateOnCurrentPage() {
+            let bLength = parseFloat(document.getElementById('bLength').value) / 1000;
+            let bWidth = parseFloat(document.getElementById('bWidth').value) / 1000;
+            let bHeight = parseFloat(document.getElementById('bHeight').value) / 1000;
+            let wLength = parseFloat(document.getElementById('wLength').value) || 0;
+            let wHeight = parseFloat(document.getElementById('wHeight').value) / 1000 || 0;
+            let wThickness = parseFloat(document.getElementById('wThickness').value) / 1000 || 0;
+            let priceCub = parseFloat(document.getElementById('vPrice').value) || 0;
+
+            if(wLength === 0 || wHeight === 0) {
+                alert('Пожалуйста, введите общую длину и высоту стен!');
+                return;
+            }
+
+            let totalVolume = wLength * wHeight * wThickness;
+            let blockVolume = bLength * bWidth * bHeight;
+            let blockCount = Math.ceil(totalVolume / blockVolume);
+            let totalPrice = Math.round(totalVolume * priceCub);
+            let pallets = Math.ceil(totalVolume / 1.44);
+
+            // Обновляем значения на экране
+            document.getElementById('outVolume').innerText = totalVolume.toFixed(2);
+            document.getElementById('outCount').innerText = blockCount;
+            document.getElementById('outPallets').innerText = pallets;
+            document.getElementById('outPrice').innerText = totalPrice.toLocaleString('ru-RU');
+
+            // Записываем результаты расчета в память, чтобы их можно было использовать
+            localStorage.setItem('calcVolume', totalVolume.toFixed(2));
+            localStorage.setItem('calcCount', blockCount);
+            localStorage.setItem('calcPallets', pallets);
+
+
+localStorage.setItem('calcPrice', totalPrice.toLocaleString('ru-RU'));
+        }
+    </script>
+</body>
+</html>
